@@ -68,5 +68,6 @@ logs/
 *.tmp
 .cache/
 
-# Cache directory (generated at runtime)
+# Runtime directories (generated at runtime)
 /cache/
+/data/
