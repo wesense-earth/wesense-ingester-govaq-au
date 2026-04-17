@@ -151,7 +151,7 @@ class NSWAdapter(GovAQAdapter):
             resp = self._session.post(
                 self._observations_url,
                 json=body,
-                timeout=30,
+                timeout=10,
             )
             resp.raise_for_status()
             data = resp.json()
