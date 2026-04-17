@@ -1,0 +1,48 @@
+{
+    "nsw": {
+        "enabled": true,
+        "name": "NSW Department of Planning and Environment",
+        "adapter": "nsw",
+        "sites_url": "https://data.airquality.nsw.gov.au/api/Data/get_SiteDetails",
+        "observations_url": "https://data.airquality.nsw.gov.au/api/Data/get_Observations",
+        "data_license": "open-no-explicit"
+    },
+    "qld": {
+        "enabled": true,
+        "name": "Queensland Department of Environment and Science",
+        "adapter": "qld",
+        "feed_url": "https://apps.des.qld.gov.au/air-quality/xml/feed.php?category=1&region=ALL",
+        "data_license": "open-no-explicit"
+    },
+    "act": {
+        "enabled": true,
+        "name": "ACT Government",
+        "adapter": "act",
+        "api_url": "https://www.data.act.gov.au/api/id/94a5-zqnn.json",
+        "data_license": "open-no-explicit"
+    },
+    "vic": {
+        "enabled": false,
+        "name": "Victoria EPA",
+        "adapter": "vic",
+        "sites_url": "https://gateway.api.epa.vic.gov.au/environmentMonitoring/v1/sites?environmentalSegment=air",
+        "data_license": "open-no-explicit",
+        "_note": "Requires VIC_EPA_API_KEY env var (free registration at portal.api.epa.vic.gov.au)"
+    },
+    "sa": {
+        "enabled": false,
+        "name": "South Australia EPA",
+        "adapter": "sa",
+        "rss_url": "https://www.epa.sa.gov.au/air_quality/rss",
+        "data_license": "CC-BY-4.0",
+        "_note": "Endpoint marked inactive by OpenAQ -- verify before enabling"
+    },
+    "tas": {
+        "enabled": false,
+        "name": "Tasmania EPA",
+        "adapter": "tas",
+        "data_url": "https://epa.tas.gov.au/Air/Live/EPA_tas_latest_particle_data.txt",
+        "data_license": "open-no-explicit",
+        "_note": "Endpoint marked inactive by OpenAQ -- verify before enabling"
+    }
+}
