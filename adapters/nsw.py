@@ -132,10 +132,10 @@ class NSWAdapter(GovAQAdapter):
         station_id = station["station_id"]
         last_ts = self._last_timestamps.get(station_id, 0)
 
-        # Fetch last 2 days to avoid missing data around midnight
+        # NSW API has ~1-2 day data lag — request 3 days back to catch latest available
         aest_now = datetime.now(AEST)
         end_date = aest_now.strftime("%Y-%m-%d")
-        start_date = (aest_now - timedelta(days=1)).strftime("%Y-%m-%d")
+        start_date = (aest_now - timedelta(days=3)).strftime("%Y-%m-%d")
 
         body = {
             "Parameters": [],
@@ -151,7 +151,7 @@ class NSWAdapter(GovAQAdapter):
             resp = self._session.post(
                 self._observations_url,
                 json=body,
-                timeout=30,
+                timeout=45,
             )
             resp.raise_for_status()
             data = resp.json()

@@ -211,11 +211,17 @@ class GovAQIngester:
                 self.stats[source_id]["stations_polled"] = len(stations)
 
                 source_readings = 0
-                for station in stations:
+                total = len(stations)
+                for i, station in enumerate(stations, 1):
                     readings = adapter.fetch_readings(station)
                     for reading in readings:
                         self.process_reading(source_id, station, reading)
                         source_readings += 1
+                    if i % 10 == 0 or i == total:
+                        self.logger.info(
+                            "%s: %d/%d stations polled (%d readings so far)",
+                            source_id, i, total, source_readings,
+                        )
 
                 self.stats[source_id]["polls"] += 1
                 self.stats[source_id]["readings_fetched"] += source_readings
